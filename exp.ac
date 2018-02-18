@@ -1,0 +1,24 @@
+in r1
+lli r2 1
+sub r2 r2 r1
+bez r2 6		#jump to 2^1
+sub r2 r1 r0
+bez r2 7		#jump to 2^0
+bgz r1 9		#jump to 2^ positive
+lli r2 -1
+out r2
+.halt
+lli r2 2		#for 2^1
+out r2
+.halt
+lli r2 1		#for 2^0
+out r2
+.halt
+lli r4 1		#for 2^ positive
+lli r3 2 
+While:add r3 r3 r3
+addi r4 r4 1
+sub r5 r1 r4
+bgz r5 &While
+out r3
+.halt
