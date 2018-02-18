@@ -1,17 +1,22 @@
-in r1
-addi r7 r1 1
-bgz r7 4
-lli r7 0
-out r7
-.halt
-While: in r1
-addi r4 r1 1
-bgz r4 1
-bez r0 5
-sub r3 r1 r2
-bgz r3 1
-bez r0 &While
-addi r2 r1 0
-bez r0 &While
-out r2
-.halt
+#Author: Damien Sudol
+#Program: max
+#Program takes user input until a negative is entered. Ouput is largest entered number.
+#If initial number is negative output is 0.
+
+in r1			#initial input from user
+addi r7 r1 1	#add 1 to user input for bgz comparison (accepts 0)
+bgz r7 4		#check if value of register is positve (jump 4 if yes)
+lli r7 0		#set value of r7 to zero for ouput
+out r7		#display 0 to user
+.halt			#end program
+While: in r1	#start of possible loop, takes in input from user
+addi r4 r1 1	#add 1 to input for bgz comparison (accepts 0)
+bgz r4 1		#if positive PC+2
+bez r0 5		#if bgz not executed leave loop
+sub r3 r1 r2	#r3 = r1 - r2
+bgz r3 1		#check if r3 is greater than 0 (r1 is greater than r2)
+bez r0 &While	#if new input is less than current max return to start of loop
+addi r2 r1 0	#if new input is greater than max set new max value to r2
+bez r0 &While	#return to start of loop
+out r2		#print r2(max value) after loop is exited
+.halt			#end program

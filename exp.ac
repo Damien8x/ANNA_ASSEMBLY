@@ -1,24 +1,30 @@
-in r1
-lli r2 1
-sub r2 r2 r1
-bez r2 6		#jump to 2^1
-sub r2 r1 r0
-bez r2 7		#jump to 2^0
-bgz r1 9		#jump to 2^ positive
-lli r2 -1
-out r2
-.halt
-lli r2 2		#for 2^1
-out r2
-.halt
-lli r2 1		#for 2^0
-out r2
-.halt
-lli r4 1		#for 2^ positive
-lli r3 2 
-While:add r3 r3 r3
-addi r4 r4 1
-sub r5 r1 r4
-bgz r5 &While
-out r3
-.halt
+#Author: Damien Sudol
+#Program: exp
+#Program takes input form user >= 0, raises 2^(input) and prints the answer. 
+#if a negtative value is entered program prints -1.
+#if a number results in a value results in overflow, -1 is printed.
+
+in r1				#set input to r1
+lli r2 1			#set r2 to 1 for value comparison
+sub r2 r2 r1		#set r2 = r2-r1
+bez r2 6			#if r2 is zero after subtraction input was 1, jump to output =2
+sub r2 r1 r0		#set r2 = r1 - r0 (0)
+bez r2 7			#if r2 resuts in zero input was zero, jump to output = 1
+bgz r1 9			#check if r1 is postive, jump 9 if yes
+zeroOverflow:lli r2 -1	#set r2 to -1 (for output)
+out r2			#print -1 (indicates input was zero or resulted in overflow)
+.halt				#end program
+lli r2 2			#set r2 to 2 (input was 1)
+out r2			#print r2
+.halt				#end program
+lli r2 1			#set r2 to 1 (input was 0)
+out r2			#print r2
+.halt				#end program
+lli r4 1			#set r4 to 1 (track executions)
+lli r3 2 			#set r3 to 2 
+While:add r3 r3 r3	#begin loop adding r3 to istelf (doubling)
+addi r4 r4 1		#increment r4 by 1
+sub r5 r1 r4		#subtract r1 by r4 for bgz comparison
+bgz r5 &While		#if r5 is positive jump to top of loop, else exit loop
+out r3			#print r3 (product of 2^(input)
+.halt				#end program

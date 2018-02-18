@@ -1,9 +1,21 @@
-in r1
-in r2
-add r5 r5 r1
-While:add r4 r4 r2
-addi r3 r3 1
-sub r6 r5 r3
-bgz r6 &While
-out r4
-.halt
+#Author: Damien Sudol
+#Program: mul
+#Program takes in two positive integers from user and multiplies their values.
+#If input is not a positive integer -1 is returned and program is ended.
+
+in r1				#set input from user to r1
+bgz r1 3			#check that input is postive, jump
+notPositive:lli r1 -1	#set r1 to -1 for ouput
+out r1			#print -1 (user input was negative)
+.halt				#end program
+in r2				#set second input from user to r2
+bgz r2 1			#check that input is positive, jump
+bez r0 &notPositive	#set PC to notPositive (user input was negative)
+add r5 r5 r1		#set r5 to value of r1 (for number of additions)
+While:add r4 r4 r2	#start of loop. r4 will increase by r2 each execution
+addi r3 r3 1		#increment r3 by 1 for termination comparison
+sub r6 r5 r3		#subtract r5 from r3 for bgz comparison
+bgz r6 &While		#if bgz is positive jump to while, else PC+1
+out r4			#print r4 (product of inputs)
+.halt				#end program
+
