@@ -1,0 +1,9 @@
+in r1
+in r2
+add r5 r5 r1
+While:add r4 r4 r2
+addi r3 r3 1
+sub r6 r5 r3
+bgz r6 &While
+out r4
+.halt
