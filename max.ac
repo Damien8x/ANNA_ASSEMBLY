@@ -1,0 +1,17 @@
+in r1
+addi r7 r1 1
+bgz r7 4
+lli r7 0
+out r7
+.halt
+While: in r1
+addi r4 r1 1
+bgz r4 1
+bez r0 5
+sub r3 r1 r2
+bgz r3 1
+bez r0 &While
+addi r2 r1 0
+bez r0 &While
+out r2
+.halt
