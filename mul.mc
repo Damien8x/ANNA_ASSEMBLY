@@ -15,4 +15,6 @@ f800
 f000
 # Labels
 While 9
+checkPositive 5
 notPositive 2
+positive 8
