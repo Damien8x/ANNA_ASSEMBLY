@@ -5,6 +5,9 @@
 #if a number results in a value results in overflow, -1 is printed.
 
 in r1				#set input to r1
+lli r2 14			#set r2 to 14 (upper bound for no overflow)
+sub r3 r1 r2		#set r3 to check if input was beyond upper bound
+bgz r3 6 			#print -1 if bgz is true
 lli r2 1			#set r2 to 1 for value comparison
 sub r2 r2 r1		#set r2 = r2-r1
 bez r2 6			#if r2 is zero after subtraction input was 1, jump to output =2
