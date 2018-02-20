@@ -1,8 +1,8 @@
 #Author: Damien Sudol
 #Program: exp
 #Program takes input form user >= 0, raises 2^(input) and prints the answer. 
-#if a negtative value is entered program prints -1.
-#if a number results in a value results in overflow, -1 is printed.
+#if a negative value is entered program prints -1.
+#if a number results in an overflow, -1 is printed.
 
 in r1					#set input to r1
 lli r2 14				#set r2 to 14 (upper bound for no overflow)
