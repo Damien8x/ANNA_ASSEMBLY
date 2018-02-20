@@ -27,4 +27,7 @@ f600
 f000
 # Labels
 While 21
+powerCompute 19
+powerOne 13
+powerZero 16
 zeroOverflow 10
