@@ -1,6 +1,6 @@
 e200
 ce41
-be04
+be03
 6e00
 fe00
 f000
@@ -17,3 +17,6 @@ f400
 f000
 # Labels
 While 6
+checkMax 13
+positive 10
+printMax 15
