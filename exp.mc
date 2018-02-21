@@ -1,24 +1,18 @@
 e200
 640e
 1650
-b606
-6401
-1488
-a406
+b603
 1440
-a407
-b209
+a404
+b206
 64ff
 f400
 f000
-6402
-f400
-f000
 6401
 f400
 f000
-6801
-6602
+6800
+6601
 6d8
 c901
 1a60
@@ -26,8 +20,7 @@ bafc
 f600
 f000
 # Labels
-While 21
-powerCompute 19
-powerOne 13
-powerZero 16
-zeroOverflow 10
+While 15
+powerCompute 13
+powerZero 10
+zeroOverflow 7
